@@ -7,25 +7,25 @@ app.use(express.json());
 app.use(cors())
 
 function telephoneNumber() {
-    var leftNumbers = Math.random(); //devem ser inteiros de 1000 a 9999
-    var rightNumbers = Math.random();
-    var DDD = Math.random(); //Numero aleatorio de 20 a 99
-    return leftNumbers;
+    var leftNumbers = Math.floor(Math.random() * 9000) + 1000;
+    var rightNumbers = Math.floor(Math.random() * 9000) + 1000;
+    var DDD =  Math.floor(Math.random() * 90) + 10;
+    return (`+55 ${DDD} ${leftNumbers}-${rightNumbers}`);
 }
     
 function createObject(i){
     return {
         id: i,
         value: telephoneNumber(),
-        monthyPrice: Math.floor(Math.random() * 11),
-        monthySetupPrice: Math.floor(Math.random() * 11),
+        monthyPrice: (Math.random() * 10).toFixed(2),
+        monthySetupPrice: (Math.random() * 10).toFixed(2),
         currency: "R$"
     };
 }
 
 let data = [];
 
-for(let itr = 1; itr <= 800; itr++) {
+for(let itr = 1; itr <= 100; itr++) {
     data.push(createObject(itr));
 }
 
