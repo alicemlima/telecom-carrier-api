@@ -1,8 +1,10 @@
 const express = require('express');
+var cors = require('cors')
 const req = require('express/lib/request');
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 function telephoneNumber() {
     var leftNumbers = Math.random(); //devem ser inteiros de 1000 a 9999
