@@ -25,7 +25,7 @@ function createObject(i){
 
 let data = [];
 
-for(let itr = 1; itr <= 100; itr++) {
+for(let itr = 1; itr <= 800; itr++) {
     data.push(createObject(itr));
 }
 
@@ -33,8 +33,13 @@ app.get('/data', (req,res) => {
     return res.json(data);
 });
 
-app.listen(process.env.PORT || 3000, () =>
-    console.log(
-        `Server started at http://localhost:3000/data`
-    )
-);
+app.post('/data', (req,res) => {
+    console.log(req.body)
+});
+
+console.log(req.body)
+app.listen(process.env.PORT || 3001, () =>
+    (console.log(
+        `Server started at http://localhost:3001/data`
+    ))
+);  
